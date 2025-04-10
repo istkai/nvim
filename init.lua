@@ -16,6 +16,7 @@ vim.g.have_nerd_font = true
 -- vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.cmd([[
@@ -124,6 +125,7 @@ vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the bottom" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the top" })
 
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -198,6 +200,18 @@ require("lazy").setup({
 				changedelete = { text = "~" },
 			},
 		},
+	},
+
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup({})
+		end,
 	},
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -867,7 +881,7 @@ require("lazy").setup({
 				end,
 				theme = "wave", -- Load "wave" theme
 				background = { -- map the value of 'background' option to a theme
-					dark = "dragon", -- try "dragon" !
+					dark = "wave", -- try "dragon" !
 					light = "lotus",
 				},
 			})
